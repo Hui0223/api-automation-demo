@@ -10,6 +10,6 @@ def test_health(api_client):
     response = api_client.get("/jmeter-api/health")
     body = assert_json_response(response)
 
-    assert_status(response, 200)
+    assert_status(response, 20)
     assert_business_code(body, 0)
     assert_has_field(body, "service")
