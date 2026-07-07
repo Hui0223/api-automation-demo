@@ -1,0 +1,38 @@
+[
+  {
+    "case_id": "login_001_success",
+    "title": "valid login",
+    "input": {"username": "alice", "password": "123456"},
+    "expected": {"status_code": 200, "code": 0},
+    "tags": ["smoke", "positive"]
+  },
+  {
+    "case_id": "login_002_empty_username",
+    "title": "empty username",
+    "input": {"username": "", "password": "123456"},
+    "expected": {"status_code": 400, "code": 40001},
+    "tags": ["regression", "negative"]
+  },
+  {
+    "case_id": "login_003_empty_password",
+    "title": "empty password",
+    "input": {"username": "alice", "password": ""},
+    "expected": {"status_code": 400, "code": 40001},
+    "tags": ["regression", "negative"]
+  },
+  {
+    "case_id": "login_004_user_not_found",
+    "title": "user not found",
+    "input": {"username": "not_exist", "password": "123456"},
+    "expected": {"status_code": 200, "code": 1001},
+    "tags": ["regression", "negative"]
+  },
+  {
+    "case_id": "login_005_wrong_password",
+    "title": "wrong password",
+    "input": {"username": "alice", "password": "wrong_pass"},
+    "expected": {"status_code": 200, "code": 1002},
+    "tags": ["regression", "negative"]
+  }
+]
+
